@@ -1,3 +1,4 @@
+<form [formGroup]="form" (submit)="baixarOs()">
 <div class="jumbotron">
     <div class="header">
         <span class="title">NET - Claro</span>
@@ -5,34 +6,35 @@
     <div class="body container-fluid">
         <div class="row">
             <span>CPF</span>
-            <input type="text" class="form-control">
+            <input name="cpf" formControlName="cpf" type="text" class="form-control">
         </div>
         <div class="row">
             <span>Contrato</span>
-            <input type="text" class="form-control">
+            <input name="contrato" formControlName="contrato" type="text" class="form-control">
         </div>
         <div class="row">
             <span>OSs</span>
-            <input type="text" class="form-control">
+            <input name="oss" formControlName="oss" type="text" class="form-control">
         </div>
         <div class="row">
             <span>CA_ID*</span>
-            <input type="text" class="form-control">
+            <input name="caId" formControlName="caId" type="text" class="form-control">
         </div>
         <div class="row">
             <span>SMART CARD*</span>
-            <input type="text" class="form-control">
+            <input name="smartCard" formControlName="smartCard" type="text" class="form-control">
         </div>
         <div class="row">
             <span>Cidade</span>
-            <input type="text" class="form-control">
+            <input name="cidade" formControlName="cidade" type="text" class="form-control">
         </div>
         <div>
             <span>*Obrigatório</span>
         </div>
     </div>
     <div class="footer float-right">
-        <button class="btn btn-secondary">Cancelar</button>
-        <button class="btn btn-primary">Enviar</button>
+        <button type="button" class="btn btn-secondary" (click)="inicializarForm()">Limpar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="form.status === 'INVALID'">Enviar</button>
     </div>
 </div>
+</form>
