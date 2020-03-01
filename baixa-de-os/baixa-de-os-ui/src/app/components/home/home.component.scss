@@ -1,8 +1,27 @@
 .jumbotron {
-    height: 500px;
     width: 500px;
+    height: 560px;
     margin: 30px auto;
     padding: 20px;
+}
+
+.header {
+    text-align: center;
+    min-height: 100px;
+}
+
+.logo {
+    width: 220px;
+}
+
+.btn {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-primary:enabled {
+    background-color: #00a1e5;
+    border-color: #00a1e5;
 }
 
 .btn-secondary {

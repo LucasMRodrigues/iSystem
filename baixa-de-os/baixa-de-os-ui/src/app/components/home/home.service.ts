@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { OsModel } from '../core/model/os.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +13,9 @@ export class HomeService {
     private http: HttpClient
   ) { }
 
-  baixarOS(model) {
-    const params = new HttpParams();
-
-    params.set('cpf', model.cpf || null);
-    params.set('cpf', model.contrato || null);
-    params.set('cpf', model.oss || null);
-    params.set('cpf', model.caId);
-    params.set('cpf', model.smartCard);
-    params.set('cpf', model.cidade || null);
-
-    this.http.post(this.url, null, { params });
+  baixarOS(os) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    
+    return this.http.post(this.url.concat('/os/baixar'), os, { headers });
   }
 }

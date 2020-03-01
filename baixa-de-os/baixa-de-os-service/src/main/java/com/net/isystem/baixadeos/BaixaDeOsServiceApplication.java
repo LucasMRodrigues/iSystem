@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BaixaDeOsApplication {
+public class BaixaDeOsServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BaixaDeOsApplication.class, args);
+		SpringApplication.run(BaixaDeOsServiceApplication.class, args);
 	}
 
 }

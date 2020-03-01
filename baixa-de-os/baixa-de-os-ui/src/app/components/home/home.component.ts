@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HomeService } from './home.service';
+import { OsModel } from '../core/model/os.model';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +12,22 @@ export class HomeComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor() { }
+  constructor(
+    private homeService: HomeService
+  ) { }
 
   ngOnInit(): void {
     this.inicializarForm();
     console.log(this.form);
   }
 
-  baixarOs() {
-    window.alert('bruxão');
+  baixarOs(e) {
+    e.preventDefault();
+    this.homeService.baixarOS(this.form.value)
+    .subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
   }
 
   inicializarForm() {
