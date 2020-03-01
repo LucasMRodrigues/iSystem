@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PocDto {
+public class OsDto {
 
     private String cpf;
     private String contrato;
