@@ -32,10 +32,11 @@
             <span>Cidade</span>
             <input name="cidade" formControlName="cidade" type="text" class="form-control">
         </div>
-        <div>
-            <span>*Obrigatório</span>
+        <div class="row">
+            <span class="small">*Campos Obrigatórios</span>
         </div>
     </div>
+    <div class="divider"></div>
     <div class="footer float-right">
         <button type="button" class="btn btn-secondary" (click)="inicializarForm()">Limpar</button>
         <button type="submit" class="btn btn-primary" [disabled]="form.status === 'INVALID'">Enviar</button>
