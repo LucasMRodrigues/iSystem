@@ -32,3 +32,18 @@
     outline: none;
     box-shadow: none;
 }
+
+.spinner-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 1000;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #00a1e5 !important;
+}

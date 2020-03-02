@@ -1,3 +1,7 @@
+<div class="spinner-overlay" *ngIf="baixandoOs">
+    <mat-spinner style="margin: 20% auto"></mat-spinner>
+</div>
+
 <form [formGroup]="form" (submit)="baixarOs($event)">
 <div class="jumbotron">
     <div class="header">

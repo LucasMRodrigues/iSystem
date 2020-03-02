@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.*;
 public interface OsApi {
 
     @PostMapping("/baixar")
-    ResponseEntity<?> baixarOs(@RequestBody OsDto poc);
+    ResponseEntity<?> baixarOs(@RequestBody OsDto poc) throws InterruptedException;
 }

@@ -15,9 +15,9 @@ public class OsApiImpl implements OsApi {
     OsService osService;
 
     @Override
-    public ResponseEntity<?> baixarOs(OsDto os) {
+    public ResponseEntity<?> baixarOs(OsDto os) throws InterruptedException {
         osService.baixarOs(os);
-
+        Thread.sleep(3*1000);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 }
