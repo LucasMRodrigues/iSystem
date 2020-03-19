@@ -15,4 +15,5 @@ public class OsDto {
     private String caId;
     private String smartCard;
     private String cidade;
+    private String endpoint;
 }

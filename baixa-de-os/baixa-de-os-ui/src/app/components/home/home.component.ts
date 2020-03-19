@@ -50,7 +50,8 @@ export class HomeComponent implements OnInit {
       oss: new FormControl(''),
       caId: new FormControl('', Validators.required),
       smartCard: new FormControl('', Validators.required),
-      cidade: new FormControl('')
+      cidade: new FormControl(''),
+      endpoint: new FormControl('')
     });
   }
 
