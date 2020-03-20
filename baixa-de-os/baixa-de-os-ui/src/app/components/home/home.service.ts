@@ -7,6 +7,8 @@ import { OsModel } from '../core/model/os.model';
 })
 export class HomeService {
 
+  private url = 'http://localhost:8080/baixa-os-service';
+
   constructor(
     private http: HttpClient
   ) { }
@@ -20,8 +22,6 @@ export class HomeService {
 
   obterEndpointBackendDoArquivoDeConfiguracao() {
 
-    const caminhoDoArquivo = 'http://192.168.0.155:8887/config.properties.txt';
-
-    return this.http.get(caminhoDoArquivo, { responseType: 'text' as 'json'});
+    return this.http.get(this.url.concat('/connector/obter-endpoint'), { responseType: 'text' as 'json'});
   }
 }

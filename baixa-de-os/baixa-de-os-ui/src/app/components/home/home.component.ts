@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
     this.homeService
       .obterEndpointBackendDoArquivoDeConfiguracao()
       .subscribe((res) => {
+        console.log(res);
         this.homeService.baixarOS(this.form.value, res)
           .subscribe(
             (r) => {
