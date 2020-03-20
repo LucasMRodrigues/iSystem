@@ -7,15 +7,21 @@ import { OsModel } from '../core/model/os.model';
 })
 export class HomeService {
 
-  private url = 'http://localhost:8080/baixa-os-service';
-
   constructor(
     private http: HttpClient
   ) { }
 
-  baixarOS(os) {
+  baixarOS(os, url) {
+
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    
-    return this.http.post(this.url.concat('/os/baixar'), os, { headers });
+
+    return this.http.post(url.concat('/os/baixar'), os, { headers });
+  }
+
+  obterEndpointBackendDoArquivoDeConfiguracao() {
+
+    const caminhoDoArquivo = 'http://192.168.15.9:8887/config.properties.txt';
+
+    return this.http.get(caminhoDoArquivo, { responseType: 'text' as 'json'});
   }
 }

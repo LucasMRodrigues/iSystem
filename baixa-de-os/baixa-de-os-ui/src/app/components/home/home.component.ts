@@ -27,20 +27,27 @@ export class HomeComponent implements OnInit {
   baixarOs(e) {
     e.preventDefault();
     this.baixandoOs = true;
-    this.homeService.baixarOS(this.form.value)
-    .subscribe(
-      (res) => {
-        console.log(res);
-        this.baixandoOs = false;
-        this.toastr.success('OS baixada com êxito!', 'Sucesso!');
-        this.inicializarForm();
-      },
-      (err) => {
+    this.homeService
+      .obterEndpointBackendDoArquivoDeConfiguracao()
+      .subscribe((res) => {
+        this.homeService.baixarOS(this.form.value, res)
+          .subscribe(
+            (r) => {
+              console.log(r);
+              this.baixandoOs = false;
+              this.toastr.success('Baixa da Ordem de Serviço realizada!', 'Sucesso!');
+              this.inicializarForm();
+            },
+            (err) => {
+              console.log(err);
+              this.baixandoOs = false;
+              this.toastr.error('Não foi possível realizar a baixa.', 'Erro...');
+            });
+      }, (err) => {
         console.log(err);
         this.baixandoOs = false;
-        this.toastr.error('Não foi possível realizar a baixa.', 'Erro...');
-      }
-    );
+        this.toastr.error('Não foi possível estabelecer conexão com o servidor.', 'Erro...');
+      })
   }
 
   inicializarForm() {
@@ -50,8 +57,7 @@ export class HomeComponent implements OnInit {
       oss: new FormControl(''),
       caId: new FormControl('', Validators.required),
       smartCard: new FormControl('', Validators.required),
-      cidade: new FormControl(''),
-      endpoint: new FormControl('')
+      cidade: new FormControl('')
     });
   }
 
