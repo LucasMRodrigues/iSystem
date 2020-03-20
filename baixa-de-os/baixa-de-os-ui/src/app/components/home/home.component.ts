@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
             (r) => {
               console.log(r);
               this.baixandoOs = false;
-              this.toastr.success('Baixa da Ordem de Serviço realizada!', 'Sucesso!');
+              this.toastr.success('Baixa da Ordem de Serviço finalizada!', 'Sucesso!');
               this.inicializarForm();
             },
             (err) => {

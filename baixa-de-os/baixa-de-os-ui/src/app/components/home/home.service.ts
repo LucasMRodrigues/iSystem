@@ -20,7 +20,7 @@ export class HomeService {
 
   obterEndpointBackendDoArquivoDeConfiguracao() {
 
-    const caminhoDoArquivo = 'http://192.168.15.9:8887/config.properties.txt';
+    const caminhoDoArquivo = 'http://192.168.0.155:8887/config.properties.txt';
 
     return this.http.get(caminhoDoArquivo, { responseType: 'text' as 'json'});
   }
